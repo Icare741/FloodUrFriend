@@ -31,9 +31,12 @@ function createOverlayWindow() {
       nodeIntegration: false,
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    focusable: false,
+    ignoreCursor: true
   });
 
+  overlayWindow.setIgnoreMouseEvents(true);
   overlayWindow.loadURL('http://localhost:5173/overlay');
   overlayWindow.hide();
 }
